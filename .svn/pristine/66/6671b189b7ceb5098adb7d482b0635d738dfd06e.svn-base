@@ -1,0 +1,165 @@
+<template>
+    <div class="backF9F9F9" >
+        <div class="mainBox">
+            <!-- 个人信息 -->
+            <div class="perInfoBox">
+                <!-- 左侧栏 -->
+                <Sidebar></Sidebar>
+                <!-- 右侧栏 -->
+                <div class="perInfoRight">
+                   <div class="infoContent">
+                       <p class="infoTitle">我的考试 > {{plan_name}} </p>
+                       <!-- 考试列表 -->
+                       <div class="statusItem flex_c">
+                           
+                           <!-- 评卷中 -->
+                           <div class="evaluationItem"  v-if="isShow==true">
+                            <img src="../assets/back/back1.png" alt="">
+                            <p class="labelItemss">正在评卷中请耐心等待</p>
+                           </div>
+                           <!-- 考试成绩 -->
+                           <div class="testScoreItem flex_c" v-else>
+                               <div class="backItems flex_c">
+                                    <span>您的考试成绩为</span>
+                                    <span class="testNum">{{testList.score}}分</span>
+                               </div>
+                               <span>{{testList.is_pass==1?'恭喜您通过考试！':'你还有好多未完成的梦，你有什么理由停下脚步'}}</span>
+                           </div>
+                           <div class="goback flex_c" @click="backHistory">返回</div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import Sidebar from '../common/Sidebar'
+import { detail } from '../api/index.js';
+
+export default {
+     components:{
+       Sidebar
+    },
+    data(){
+        return {
+           testList: [
+              
+           ],
+           isShow: false,
+           plan_name: ''
+        }
+    },
+    methods: {
+         backHistory(){
+            this.$router.go(-1); //返回上一层
+        },
+         // 考试列表
+       detailData(id){
+            var params = id;
+            detail(params).then(res => {
+                console.log(res)
+                let {row} = res.data
+                this.testList = row
+                if(row.status==1) {
+                    this.isShow == true
+                }else {
+                    this.isShow == false 
+                }
+            })
+        },
+    },
+    mounted(){
+        console.log(this.$route.query)
+        let testData = this.$route.query
+        this.plan_name = testData.plan_name
+        console.log(testData.id)
+            this.detailData(testData.id)
+            
+        
+    }
+}
+</script>
+
+<style  lang="less" scoped>
+    .perInfoBox { 
+        padding: 20px 0;
+        display: flex;
+        // 右侧栏
+        .perInfoRight {
+            width: 710px;
+            min-height: 600px;
+            background: #FFFFFF;
+            box-sizing: border-box;
+            .infoContent {
+                margin: 0 25px;
+                .infoTitle {
+                    font-size: 16px;
+                    font-family: Microsoft YaHei;
+                    font-weight: 400;
+                    color: #000000;
+                    border-bottom: 1px solid #B5B6B8;
+                    padding-bottom: 14px;
+                    padding-top: 30px;
+                    margin-bottom: 28px;
+                }
+                .statusItem {
+                    flex-direction: column;
+                    .evaluationItem {
+                        img {
+                            width: 260px;
+                            height: 260px;
+                        }
+                        .labelItemss {
+                            font-size: 18px;
+                            font-family: PingFang SC;
+                            font-weight: 400;
+                            color: #343434;
+                            margin: 23px 0 0px;
+                        }
+                    }
+                    .testScoreItem {
+                        flex-direction: column;
+                        .backItems {
+                            width: 300px;
+                            height: 230px;
+                            background: #F7F8FA;
+                            flex-direction: column;
+                             justify-content: center;
+                             margin-bottom: 39px;
+                            span {
+                                font-size: 18px;
+                                font-family: Microsoft YaHei;
+                                font-weight: 400;
+                                color: #343434;
+                            }
+                            .testNum {
+                                font-size: 60px;
+                                font-family: Arial;
+                                font-weight: 400;
+                                color: #343434;
+                                margin: 53px 0 0;
+                                height: 42px;
+                                line-height: 42px;
+                            }
+                        }
+                    }
+                    .goback {
+                        width: 400px;
+                        height: 50px;
+                        background: #42D1C2;
+                        font-size: 20px;
+                        font-family: Microsoft YaHei;
+                        font-weight: 400;
+                        color: #FFFFFF;
+                        justify-content: center;
+                        cursor: pointer;
+                        margin-top: 70px;
+                    }
+                }
+               
+            }
+        }
+    }
+</style>

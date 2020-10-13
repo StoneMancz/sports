@@ -1,0 +1,118 @@
+<template>
+  <div class="contentWrap">
+    <div class="position">
+      <img src="../assets/place.png" />
+      <span> 您当前的位置：首页 > 全部指导站 </span>
+    </div>
+
+    <div class="classList">
+      <div class="classObj">
+        <img src="../assets/redImg1.png" />
+        <span>CHINAFIT线上云展会企业入驻微视</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg2.png" />
+        <span>2020CHINAFIT健身达人锻造营开始...</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg3.png" />
+        <span>CHINAFIT线上云展会企业入驻微视</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg4.png" />
+        <span>奥博力杯-DB精英赛总决赛暨黄金健...</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg1.png" />
+        <span>CHINAFIT线上云展会企业入驻微视</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg2.png" />
+        <span>2020CHINAFIT健身达人锻造营开始...</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg3.png" />
+        <span>CHINAFIT线上云展会企业入驻微视</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg4.png" />
+        <span>奥博力杯-DB精英赛总决赛暨黄金健...</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg4.png" />
+        <span>奥博力杯-DB精英赛总决赛暨黄金健...</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg4.png" />
+        <span>奥博力杯-DB精英赛总决赛暨黄金健...</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg4.png" />
+        <span>奥博力杯-DB精英赛总决赛暨黄金健...</span>
+      </div>
+      <div class="classObj">
+        <img src="../assets/redImg4.png" />
+        <span>奥博力杯-DB精英赛总决赛暨黄金健...</span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="stylus" scoped>
+.contentWrap {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  .position {
+    margin-top: 20px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+
+    span {
+      height: 12px;
+      font-size: 14px;
+      font-family: Microsoft YaHei;
+      font-weight: 400;
+      color: #333333;
+    }
+  }
+
+  .classList {
+      width: 1200px;
+      margin-bottom 60px;
+      .classObj {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        float: left;
+        margin-right: 15px;
+        width: 285px;
+        height: 196px;
+        box-sizing: border-box;
+
+        img {
+          width: 100%;
+          height: 160px;
+        }
+
+        span {
+          margin-top: 20px;
+          font-size: 16px;
+          font-family: Microsoft YaHei;
+          font-weight: 400;
+          color: #000000;
+        }
+      }
+    }
+}
+</style>

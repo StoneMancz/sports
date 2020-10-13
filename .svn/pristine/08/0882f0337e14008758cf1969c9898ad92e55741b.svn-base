@@ -1,0 +1,13 @@
+
+import axios from 'axios'
+import qs from 'qs'
+//立即支付
+export const paycode = params => {
+    return axios.post('recharge/payCode.do',qs.stringify(params)).then(res=>res.data)
+}
+//个人信息
+export const  applyList = params => {
+    return axios.get('/api/instructor/apply',params).then(res => res.data).catch((response)=>{
+         console.log(response);
+     })
+}

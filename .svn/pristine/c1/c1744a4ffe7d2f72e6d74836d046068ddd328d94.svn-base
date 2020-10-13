@@ -1,0 +1,266 @@
+<template>
+    <div class="backF9F9F9" >
+        <div class="mainBox">
+            <!-- 个人信息 -->
+            <div class="perInfoBox">
+                <!-- 左侧栏 -->
+                <Sidebar></Sidebar>
+                <!-- 右侧栏 -->
+                <div class="perInfoRight">
+                   <div class="infoContent">
+                       <p class="infoTitle">个人信息</p>
+                       <ul class="fromUL">
+                           <li v-for="(item,index) in infoList" :key="index" class="flex_c fromLi">
+                               <span class="nameItem">{{item.title}}</span>
+                               <input type="text" class="inputItem" v-if="index==0||index==1||index==2||index==3">
+                               <!-- 性别选择 -->
+                               <div class="flex_c" v-if="index==4">
+                                   <div class="sexItem flex_c" v-for="(item,index) in sexList" :key="index">
+                                       <div class="circles flex_c" @click="circleshandel(index)">
+                                           <span :class="index==sexIdx?'circlesActive':''"></span>
+                                       </div>
+                                        <span>{{item}}</span>
+                                   </div>
+                               </div>
+                               <!-- 区域选择 -->
+                               <div class="flex_c" v-if="index==5">
+                                   <div class="flex_c areaBox"  v-for="(item,index) in areaList" :key="index">
+                                       <div class="areaItem flex_c" :style="index==0?'margin-right: 10px': ''" @click="areahandel(index)">
+                                            <span>南湖路</span>
+                                            <img src="../assets/icon/arrow_b.png" alt="" srcset="">
+                                       </div>
+                                        <ul :class="index==areaIdx&&isShow==true?'areaHeight areaUl':'areaUl'">
+                                            <li>南湖路1</li>
+                                            <li>南湖路2</li>
+                                        </ul>
+                                   </div>
+                                  
+                               </div>
+                               <!-- 学历 -->
+                               <div class="flex_c" v-if="index==6">
+                                   <div class="flex_c">
+                                       <div class="areaItem flex_c education">
+                                            <span style="width: 90%">本科</span>
+                                            <img src="../assets/icon/arrow_b.png" alt="">
+                                       </div>
+                                   </div>
+                               </div>
+                           </li>
+                            <div class="confirmButton flex_c">确认填写</div>
+                            <p class="labelItem">*信息一旦提交无法修改，请确保填写的信息无误</p>
+                       </ul>
+                      
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import Sidebar from '../common/Sidebar'
+export default {
+    components:{
+       Sidebar
+    },
+     data(){
+        return {
+            // input
+            infoList: [
+                {
+                    title: '姓名'
+                },
+                 {
+                    title: '身份证'
+                },
+                 {
+                    title: '年龄'
+                },
+                 {
+                    title: '手机'
+                },
+                 {
+                    title: '性别'
+                },
+                 {
+                    title: '区域'
+                },
+                {
+                    title: '学历'
+                },
+            ],
+            sexList: ['男','女'],//性别
+            sexIdx: 0,//性别下标
+            //区域选择
+            areaList: [
+                {},
+                {}
+            ],
+            // 区域下标
+            areaIdx: null,
+            isShow: false
+        }
+    },
+    methods: {
+        //性别选中
+        circleshandel(index) {
+            this.sexIdx = index
+        },   
+        // 区域选择
+        areahandel(index) {
+            this.areaIdx = index
+            this.isShow = !this.isShow
+        },
+    },
+}
+</script>
+
+<style lang="less" scoped>
+    .perInfoBox { 
+        padding: 20px 0;
+        display: flex;
+        // 右侧栏
+        .perInfoRight {
+            width: 710px;
+            height: 600px;
+            background: #FFFFFF;
+            box-sizing: border-box;
+            .infoContent {
+                margin: 0 25px;
+                .infoTitle {
+                    font-size: 16px;
+                    font-family: Microsoft YaHei;
+                    font-weight: 400;
+                    color: #000000;
+                    border-bottom: 1px solid #B5B6B8;
+                    padding-bottom: 14px;
+                    padding-top: 30px;
+                }
+                .fromUL {
+                    margin: 29px 0 0 17px;
+                    .fromLi {
+                        margin-bottom: 20px;
+                      .nameItem {
+                        font-size: 14px;
+                        font-family: PingFang SC;
+                        font-weight: 500;
+                        color: #333333;
+                        width: 80px;
+                      }
+                      .inputItem {
+                        width: 326px;
+                        height: 35px;
+                        background: #FFFFFF;
+                        border: 1px solid #EDEDED;
+                        padding-left: 10px;
+                        outline-color: #41D1C2;
+                        box-sizing: border-box;
+                        font-size: 14px;
+                        font-family: PingFang SC;
+                        font-weight: 500;
+                        color: #8F8F8F;
+                      }
+                      .sexItem {
+                        margin-right: 39px;
+                        .circles {
+                        width: 15px;
+                        height: 15px;
+                        border: 1px solid #41D1C2;
+                        border-radius: 50%;
+                        margin-right: 15px;
+                        justify-content: center;
+                        cursor: pointer;
+                            .circlesActive {
+                                width: 8px;
+                                height: 8px;
+                                background: #41D1C2;
+                                border-radius: 50%;
+                                display: inline-block;
+                            }
+                        }
+                      } 
+                      .areaBox {
+                          position: relative;
+                        .areaItem {
+                            width: 158px;
+                            height: 35px;
+                            background: #FFFFFF;
+                            border: 1px solid #EDEDED;
+                            box-sizing: border-box;
+                            cursor: pointer;
+                            span {
+                                font-size: 14px;
+                                font-family: PingFang SC;
+                                font-weight: 500;
+                                color: #333333;
+                                display: inline-block;
+                                width: 80%;
+                                text-align: center;
+                            }
+                            img {
+                                width: 14px;
+                                height: 8px;
+                            }
+                        } 
+                        .areaUl {
+                            position: absolute;
+                            top: 35px;
+                            width: 158px;
+                            height: 0;
+                            overflow: hidden;
+                            transition: all .3s;
+                            background: #FFFFFF;
+                            li {
+                                width: 80%;
+                                text-align: center;
+                                font-size: 14px;
+                                font-family: PingFang SC;
+                                font-weight: 500;
+                                color: #333333;
+                                padding: 10px 0;
+                                cursor: pointer;
+                            }
+                            :hover {
+                                background:#41D1C2;
+                                color: #FFFFFF;
+                            }
+                          
+                        }
+                        .areaHeight {
+                            height: auto;
+                           transition: all .3s;
+                        }
+                      }
+                      .education {
+                        width: 326px!important;  
+                        height: 35px;
+                        border: 1px solid #EDEDED!important;
+                        padding-left: 10px;
+                        box-sizing: border-box;
+                        text-align: center;
+                        cursor: pointer;
+                      }
+                    }
+                    .confirmButton {
+                        width: 100px;
+                        height: 30px;
+                        background: #41D1C2;
+                        font-size: 14px;
+                        font-family: Microsoft YaHei;
+                        font-weight: 400;
+                        color: #FFFFFF;
+                        justify-content: center;
+                        margin: 40px 0 20px;
+                    }
+                    .labelItem {
+                        font-size: 12px;
+                        font-family: PingFang SC;
+                        font-weight: 500;
+                        color: #FF382C;
+                    }
+                }
+                
+            }
+        }
+    }
+</style>

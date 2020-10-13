@@ -1,0 +1,256 @@
+<template>
+  <div class="contentWrap">
+    <div class="filterGuide">
+      <div class="position">
+        <img src="../assets/place.png" />
+        <span> 您当前的位置：首页 > 全部指导站 </span>
+      </div>
+      <div class="filter">
+        <div class="area">
+          <span>区域：</span>
+          <span>不限</span>
+          <span>开福区</span>
+          <span>雨花区</span>
+          <span>岳麓区</span>
+          <span>芙蓉区</span>
+          <span>天心区</span>
+        </div>
+        <div>
+          <span>项目：</span>
+          <span>不限</span>
+          <span>重锤拉力器</span>
+          <span>形体操</span>
+          <span>椭圆机</span>
+          <span>健身盘</span>
+          <span>跑步机</span>
+          <span>握力器</span>
+          <span>健身自行车</span>
+        </div>
+      </div>
+      <div class="dividing"></div>
+      <div class="roomList">
+        <div class="roomObj">
+          <div class="stationHeader">
+            <img src="../assets/station.png" />
+            <div class="stationContent">
+              <span>万达指导站</span>
+              <span class="stationDesc">长沙市开福区芙蓉北路万达广场B座</span>
+            </div>
+          </div>
+          <div class="contact">
+            <div class="conHeader">
+              <div class="projectName">项目</div>
+              <div class="projectDesc">健身自行车</div>
+            </div>
+            <div class="contactDetails">
+              <div class="person">联系人</div>
+
+              <div class="personDetails">
+                <span>王先生</span>
+                <span>1705556668</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="roomObj">
+          <div class="stationHeader">
+            <img src="../assets/station.png" />
+            <div class="stationContent">
+              <span>万达指导站</span>
+              <span class="stationDesc">长沙市开福区芙蓉北路万达广场B座</span>
+            </div>
+          </div>
+          <div class="contact">
+            <div class="conHeader">
+              <div class="projectName">项目</div>
+              <div class="projectDesc">健身自行车</div>
+            </div>
+            <div class="contactDetails">
+              <div class="person">联系人</div>
+
+              <div class="personDetails">
+                <span>王先生</span>
+                <span>1705556668</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  components: {},
+};
+</script>
+
+<style lang="stylus" scoped>
+.contentWrap {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  box-sizing: border-box;
+
+  .filterGuide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F9F9F9;
+    min-height: 1153px;
+
+    .position {
+      margin-top: 20px;
+      width: 1200px;
+      display: flex;
+      align-items: center;
+
+      span {
+        height: 12px;
+        font-size: 14px;
+        font-family: Microsoft YaHei;
+        font-weight: 400;
+        color: #333333;
+      }
+    }
+
+    .filter {
+      margin-top: 25px;
+      width: 1200px;
+      height: 120px;
+      background: #FFFFFF;
+
+      div {
+        margin-left: 31px;
+
+        span {
+          font-size: 16px;
+          font-family: Microsoft YaHei;
+          font-weight: 400;
+          color: #333333;
+          margin-left: 33px;
+        }
+      }
+
+      .area {
+        margin-top: 35px;
+        margin-bottom: 25px;
+      }
+    }
+
+    .dividing {
+      margin-top: 30px;
+      width: 1200px;
+      height: 1px;
+      background: #DCDCDC;
+      margin-bottom: 30px;
+    }
+
+    .roomList {
+      width: 1200px;
+
+      .roomObj {
+        margin-top: 30px;
+        float: left;
+        display: flex;
+        margin-right: 10px;
+        flex-direction: column;
+        width: 380px;
+        height: 220px;
+        background: #FFFFFF;
+        box-sizing: border-box;
+        padding-left: 20px;
+        padding-right: 15px;
+        padding-top: 20px;
+
+        .stationHeader {
+          display: flex;
+          height: 98px;
+          border-bottom: 1px solid #EFEFF4;
+
+          img {
+            width: 58px;
+            height: 58px;
+          }
+
+          .stationContent {
+            display: flex;
+            flex-direction: column;
+            margin-left: 15px;
+
+            .stationDesc {
+              margin-top: 15px;
+              font-size: 16px;
+              font-family: Microsoft YaHei;
+              font-weight: 400;
+              color: #8F8F8F;
+            }
+          }
+
+          .stationContent:first-child {
+            font-size: 18px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #000000;
+          }
+        }
+      }
+
+      .contact {
+        display: flex;
+        flex-direction: column;
+
+        .conHeader {
+          margin-top: 27px;
+          display: flex;
+
+          .projectName {
+            width: 60px;
+            height: 25px;
+            background: #41D1C2;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #FFFFFF;
+          }
+
+          .projectDesc {
+            margin-left: 15px;
+          }
+        }
+
+        .contactDetails {
+          margin-top: 15px;
+          display: flex;
+
+          .person {
+            width: 60px;
+            height: 25px;
+            background: #2178FB;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #FFFFFF;
+          }
+
+          .personDetails {
+            margin-left: 15px;
+          }
+
+          .personDetails span {
+            margin-right: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

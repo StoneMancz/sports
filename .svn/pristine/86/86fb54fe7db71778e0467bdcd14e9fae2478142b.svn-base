@@ -1,0 +1,32 @@
+<template>
+  <div id="app">
+    <Header></Header>
+    <div v-wechat-title="$route.meta.title">
+      <router-view />
+    </div>
+     <Bottom></Bottom>
+  </div>
+</template>
+
+<script>
+import Header from './common/Header'
+import Bottom from './common/Bottom'
+export default {
+  name: 'App',
+   components: {
+    Header,
+    Bottom
+  }
+}
+</script>
+
+<style>
+body,html{
+  margin: 0;
+  padding: 0;
+}
+#app {
+  margin: 0;
+  padding: 0;
+}
+</style>

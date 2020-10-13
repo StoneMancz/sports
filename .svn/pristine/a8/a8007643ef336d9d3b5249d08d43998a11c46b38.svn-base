@@ -1,0 +1,185 @@
+<template>
+  <div class="contentWrap">
+    <div class="wrap">
+      <div class="poster">
+        <div class="slide">
+          <ul class="slide-auto">
+            <li>
+              <img src="../assets/poster.png" />
+            </li>
+            <li>
+              <img src="../assets/poster1.png" />
+            </li>
+            <li>
+              <img src="../assets/poster2.png" />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="exam">
+        <div class="examItem" style="margin-right: 21px">
+          <img src="../assets/basicImg.png" />
+          <div class="basicDesc">
+            <div class="title">基础考试</div>
+            <div class="desc">Basic examination</div>
+          </div>
+        </div>
+        <div class="examItem">
+          <img src="../assets/individual.png" />
+          <div class="basicDesc">
+            <div class="title">单项考试</div>
+            <div class="desc">Individual examination</div>
+          </div>
+        </div>
+      </div>
+      <Recommend></Recommend>
+    </div>
+    <Classroom></Classroom>
+  </div>
+</template>
+<script>
+import Classroom from '../common/Classroom';
+import Recommend from '../common/Recommend'
+
+  //页面引入
+    //  import axis from 'axios';
+export default {
+  name:'index',
+  components:{
+    Classroom,
+    Recommend
+  },
+   created(){
+   this.test()
+  },
+  methods:{
+
+  }
+
+  
+};
+</script>
+
+<style lang="stylus" scoped>
+.contentWrap {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  box-sizing: border-box;
+  .wrap {
+    width: 100%;
+    background: #F9F9F9;
+
+    .poster {
+      box-sizing: border-box;
+
+      .slide {
+        position: relative;
+        margin: auto;
+        width: 1200px;
+        height: 428px;
+        text-align: center;
+        font-family: Arial;
+        color: #FFF;
+        overflow: hidden;
+
+        ul {
+          margin: 10px 0;
+          padding: 0;
+          width: 9999px;
+          transition: all 0.5s;
+
+          li {
+            float: left;
+            width: 1200px;
+            height: 428px;
+            list-style: none;
+            line-height: 428px;
+            font-size: 36px;
+          }
+        }
+
+        .slide-auto {
+          animation: marginLeft 10.5s infinite;
+        }
+
+        @keyframes marginLeft {
+          0% {
+            margin-left: 0;
+          }
+
+          28.5% {
+            margin-left: 0;
+          }
+
+          33.3% {
+            margin-left: -1200px;
+          }
+
+          62% {
+            margin-left: -1200px;
+          }
+
+          66.7% {
+            margin-left: -2400px;
+          }
+
+          95.2% {
+            margin-left: -2400px;
+          }
+
+          100% {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    .exam {
+      margin-top: 50px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
+      .examItem {
+        position: relative;
+        width: 590px;
+        height: 200px;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 590px;
+          height: 200px;
+        }
+
+        .basicDesc {
+          position: relative;
+          padding-left: 44px;
+
+          .title {
+            margin-top: 70px;
+            font-size: 30px;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: #FFFFFF;
+          }
+
+          .desc {
+            margin-top: 30px;
+            font-size: 18px;
+            font-family: Arial;
+            font-weight: 400;
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

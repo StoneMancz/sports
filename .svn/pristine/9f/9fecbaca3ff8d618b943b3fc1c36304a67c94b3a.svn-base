@@ -1,0 +1,76 @@
+<template>
+  <div id="app">
+    <Header></Header>
+    <div v-wechat-title="$route.meta.title">
+      <router-view />
+    </div>
+     <Bottom></Bottom>
+  </div>
+</template>
+
+<script>
+import Header from './common/Header'
+import Bottom from './common/Bottom'
+
+export default {
+  name: 'App',
+   components: {
+    Header,
+    Bottom
+  }
+}
+</script>
+
+<style>
+body,html{
+  margin: 0;
+  padding: 0;
+}
+#app {
+  margin: 0;
+  padding: 0;
+}
+ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+p {
+  margin: 0;
+}
+.mainBox {
+  width: 1200px;
+  margin: 0 auto;
+}
+.backF9F9F9 {
+  background: #F9F9F9;
+}
+/* 溢出隐藏省略号显示 */
+.ellipsis_1 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.ellipsis_2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+/* flex布局 */
+
+.flex_jc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.flex_c {
+  display: flex;
+  align-items: center;
+}
+</style>
